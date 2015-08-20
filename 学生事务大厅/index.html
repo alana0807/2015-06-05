@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<title>学生事务大厅</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<meta http-equiv="X-UA-Compatible" content="IE=11;IE=10;IE=9;IE=8;IE=7;IE=EDGE">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="Shortcut Icon" href="">
+	<link href="css/reset.css" rel="stylesheet">
+	<link href="css/base.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+	<script type="text/javascript">
+	window.onload=function(){
+		var speed= 50; //数字越大速度越慢
+		var tab=document.getElementById("blank-notice");
+		var tab1=document.getElementById("demo1");
+		var tab2=document.getElementById("demo2");
+		tab2.innerHTML=tab1.innerHTML; //克隆demo1为demo2
+		function Marquee(){
+		if(tab2.offsetTop-tab.scrollTop<=0)//当滚动至demo1与demo2交界时
+		tab.scrollTop-=tab1.offsetHeight //demo跳到最顶端
+		else{
+		tab.scrollTop++
+		}
+		}
+		var MyMar=setInterval(Marquee,speed);
+		tab.onmouseover=function() {clearInterval(MyMar)};//鼠标移上时清除定时器达到滚动停止的目的
+		tab.onmouseout=function() {MyMar=setInterval(Marquee,speed)};//鼠标移开时重设定时器
+	}
+	function nTabs(thisObj,Num){
+		if(thisObj.className == "active")return;
+		var tabObj = thisObj.parentNode.id;
+		var tabList = document.getElementById(tabObj).getElementsByTagName("li");
+		for(i=0; i <tabList.length; i++)
+		{
+		  if (i == Num)
+		  {
+		   thisObj.className = "active"; 
+			  document.getElementById(tabObj+"_Content"+i).style.display = "block";
+		  }else{
+		   tabList[i].className = "normal"; 
+		   document.getElementById(tabObj+"_Content"+i).style.display = "none";
+		  }
+		} 
+	}
+    </script>
+</head>
+
+<body>
+	<!-- header start -->
+	<div class="header">
+		<div class="login">
+		用户名&nbsp;&nbsp;<input />密码&nbsp;&nbsp;<input type="password"//><button>登录</button><a href="#">忘记密码</a>
+		</div>
+        <div class="login-in"><a href="#">个人中心</a></div>
+	</div>
+	<!-- header end -->
+    
+	<!-- container start -->
+	<div class="container">
+		<div class="noticeback1"></div>
+		<div class="noticeback2"></div>
+		<div class="noticeback3"></div>
+		<div class="noticeback4"></div>
+        <div class="noticeback5"></div>
+		<div class="roundback roundback-first"></div>
+		<div class="roundback roundback-second"></div>
+		<div class="roundback roundback-third"></div>
+		<div class="roundback roundback-fourth"></div>
+		<div class="roundback roundback-fifth"></div>
+		<a class="round round-first" href="#"><span>通知</br>公告</span></a>
+		<a class="round round-second" href="#"><span>新闻</br>中心</span></a>
+		<a class="round round-third" href="#"><span>资源</br>下载</span></a>
+		<a class="round round-fourth" href="#"><span>网上</br>办理</span></a>
+		<a class="round round-fifth" href="#"><span>服务</br>指南</span></a>
+		<div class="blank-notice">
+			<div class="title  blank-title">公告</div>
+			<div id="blank-notice">
+				<div id="demo1">
+					<ul class="blank-content">
+						<li><a href="#"><span>2015-05-05</span><div class="content">清水河校区学生活动教室借用申请表动教室借用申请表</div></a></li>
+						<li><a href="#"><span>2015-05-05</span><div class="content">清水河校区学生活动教室借用申请表</div></a></li>
+						<li><a href="#"><span>2015-05-05</span><div class="content">清水河校区学生活动教室借用申请表</div></a></li>
+						<li><a href="#"><span>2015-05-05</span><div class="content">清水河校区学生活动教室借用申请表</div></a></li>
+						<li><a href="#"><span>2015-05-05</span><div class="content">清水河校区学生活动教室借用申请表</div></a></li>
+						<li><a href="#"><span>2015-05-05</span><div class="content">清水河校区学生活动教室借用申请表</div></a></li>
+						<li><a href="#"><span>2015-05-05</span><div class="content">清水河校区学生活动教室借用申请表</div></a></li>
+						<li><a href="#"><span>2015-05-05</span><div class="content">清水河校区学生活动教室借用申请表</div></a></li>
+						<li><a href="#"><span>2015-05-05</span><div class="content">清水河校区学生活动教室借用申请表</div></a></li>
+						<li><a href="#"><span>2015-05-05</span><div class="content">清水河校区学生活动教室借用申请表</div></a></li>
+					</ul>
+				</div>
+				<div id="demo2"></div>
+			</div>
+		</div>
+		<div class="blank-search"><input style="color:rgb(153,153,153);" value="请输入关键字" onfocus="if(this.value=='请输入关键字'){this.value=''};this.style.color='#000';" onblur="if(this.value==''||this.value=='请输入关键字'){this.value='请输入关键字';this.style.color='gray';}"/><button>搜索</button></div>
+		<div class="blank-news">
+			<ul class="title" id="myTab">
+				<li class="active" onmouseover="nTabs(this,0);">新闻</li>
+				<li class="normal" onmouseover="nTabs(this,1);">资源</li> 			      
+			</ul>
+			<div id="myTab_Content0">
+				<ul class="blank-content">
+					<li><a href="#"><span>2015-05-05</span><div class="content">清水河校区学生活动教室申请1</div></a></li>
+					<li><a href="#"><span>2015-05-05</span><div class="content">清水河校区学生活动教室借用申请表</div></a></li>
+					<li><a href="#"><span>2015-05-05</span><div class="content">清水河校区学生活动教室借用申请表</div></a></li>
+					<li><a href="#"><span>2015-05-05</span><div class="content">清水河校区学生活动教室借用申请表</div></a></li>
+					<li><a href="#"><span>2015-05-05</span><div class="content">清水河校区学生活动教室借用申请表</div></a></li>
+					<li><a href="#"><span>2015-05-05</span><div class="content">清水河校区学生活动教室借用申请表</div></a></li>
+					<li><a href="#"><span>2015-05-05</span><div class="content">清水河校区学生活动教室借用申请表</div></a></li>
+					<li><a href="#"><span>2015-05-05</span><div class="content">清水河校区学生活动教室借用申请表</div></a></li>
+					<li><a href="#"><span>2015-05-05</span><div class="content">清水河校区学生活动教室借用申请表</div></a></li>
+				</ul>
+			</div>
+			<div id="myTab_Content1" class="none">
+				<ul class="blank-content">
+					<li><a href="#"><span>2015-05-05</span><div class="content">清水河校区学生活动教室请2</div></a></li>
+					<li><a href="#"><span>2015-05-05</span><div class="content">清水河校区学生活动教室借用申请表</div></a></li>
+					<li><a href="#"><span>2015-05-05</span><div class="content">清水河校区学生活动教室借用申请表</div></a></li>
+					<li><a href="#"><span>2015-05-05</span><div class="content">清水河校区学生活动教室借用申请表</div></a></li>
+					<li><a href="#"><span>2015-05-05</span><div class="content">清水河校区学生活动教室借用申请表</div></a></li>
+					<li><a href="#"><span>2015-05-05</span><div class="content">清水河校区学生活动教室借用申请表</div></a></li>
+					<li><a href="#"><span>2015-05-05</span><div class="content">清水河校区学生活动教室借用申请表</div></a></li>
+					<li><a href="#"><span>2015-05-05</span><div class="content">清水河校区学生活动教室借用申请表</div></a></li>
+					<li><a href="#"><span>2015-05-05</span><div class="content">清水河校区学生活动教室借用申请表</div></a></li>
+				</ul>
+			</div>			
+		</div>
+		<div class="blank-online">
+			<div class="back">
+				<div class="title">大厅办理</div>
+				<div class="content">
+					地址：厦门大学颂恩楼一层<br/>
+					开放时间：08:00-11:00</br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14:00-17:00<br/>
+					<a>查看地图»</a>
+				</div>
+			</div>
+		</div>
+		<div class="blank-online">
+			<div class="back">
+				<div class="title">网上办理</div>
+				<div class="content">
+					网上办理服务提供在线预约服务方式。网上预约范围：
+					（1）出国（境）交流审批<br/>
+					（2）场地预约<br/>
+					（3）后勤服务<br/>
+					<a>我要办理»</a>
+				</div>
+			</div>
+		</div>
+        <div class="guide-title blank-title">服务指南</div>
+		<div class="blank-guide">
+			<ul>
+				<li class="active"><div class="title _1"></div>aa</li>
+				<li class="normal"><div class="title _2"></div>bb</li>
+				<li class="normal"><div class="title _3"></div>cc</li>
+				<li class="normal"><div class="title _4"></div>dd</li>
+				<li class="normal"><div class="title _5"></div>ee</li>
+				<li class="normal"><div class="title _6"></div>ff</li>
+				<li class="normal"><div class="title _7"></div>gg</li>
+			</ul>
+		</div>
+        <div class="link-title  blank-title">友情链接</div>
+        <div class="noticeback10"></div>
+        <div class="blank-link">
+    	</div>
+    </div>
+    
+	<!-- container end -->
+	<!-- footer start -->
+	<div class="footer">
+    <div class="noticeback6"></div>
+    <div class="noticeback7"></div>
+    <div class="noticeback8"></div>
+    <div class="noticeback9"></div>
+    <div class="chu">厦门大学学生处</div>
+	<div class="beike">技术支持：<img src="img/project-img/logo.png"><a href="#">厦门大学贝壳网络科技工作室</a></div>	
+    </div>
+	<!-- footer end -->    
+</body>
+</html>
